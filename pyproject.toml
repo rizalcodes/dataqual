@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataqual"
+version = "0.1.0"
+description = "CLI tool for auditing CSV/Excel/PostgreSQL datasets — missing values, duplicates, type mismatches, outliers."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer",
+    "pandas",
+    "rich",
+    "pyyaml",
+    "openpyxl",
+    "sqlalchemy",
+    "psycopg2-binary",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.scripts]
+dataqual = "dataqual.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["dataqual*"]

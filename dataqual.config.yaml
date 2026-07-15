@@ -1,0 +1,20 @@
+# dataqual configuration — pass with: dataqual check --file data.csv --config dataqual.config.yaml
+#
+# Each threshold is a percentage (0-100). A check result at or above its
+# threshold is flagged red in reports; above zero but below it is yellow;
+# zero is green. Omitted rules keep their built-in default (10).
+
+rules:
+  # % of missing values per column considered alarming.
+  # Set lower than the default 10 so mostly-complete columns still get flagged.
+  missing_threshold: 5
+
+  # % of duplicate rows (relative to the whole dataset) considered alarming.
+  duplicate_threshold: 5
+
+  # % of type-mismatched values per column considered alarming.
+  # Set higher than the default 10 to tolerate a few stray values.
+  type_mismatch_threshold: 20
+
+  # % of IQR outliers per numeric column considered alarming.
+  outlier_threshold: 10
